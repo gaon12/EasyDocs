@@ -79,7 +79,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/((?!embed(?:/|$)).*)",
+        source: "/:path((?!embed(?:/|$)).*)",
         headers: [
           ...sharedHeaders,
           {
