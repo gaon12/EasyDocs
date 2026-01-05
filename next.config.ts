@@ -69,7 +69,17 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/embed/:path*",
+        source: "/embed",
+        headers: [
+          ...sharedHeaders,
+          {
+            key: "Content-Security-Policy",
+            value: embedCsp,
+          },
+        ],
+      },
+      {
+        source: "/embed/(.*)",
         headers: [
           ...sharedHeaders,
           {
